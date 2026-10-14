@@ -166,7 +166,6 @@ const STARTERS = [
 function ChatPanel({ messages, status, stop, ask, onClear }: {
   messages: UIMessage[]; status: string; stop: () => void; ask: (t: string) => void; onClear: () => void;
 }) {
-  const busy = status === "submitted" || status === "streaming";
   const handleSubmit = (m: PromptInputMessage) => {
     if (!m.text?.trim()) return;
     ask(m.text);
@@ -216,7 +215,7 @@ function ChatPanel({ messages, status, stop, ask, onClear }: {
         <PromptInput onSubmit={handleSubmit}>
           <PromptInputTextarea autoFocus placeholder="Type your question… / अपना सवाल लिखें…" />
           <PromptInputFooter className="justify-end">
-            <PromptInputSubmit status={status as never} onStop={stop} disabled={false && busy} />
+            <PromptInputSubmit status={status as never} onStop={stop} />
           </PromptInputFooter>
         </PromptInput>
       </div>
