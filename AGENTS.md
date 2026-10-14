@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- AI chat streams from the /api/chat server route (gateway helpers in src/server/ai); all feature tabs feed prompts into the one shared chat so AI logic lives in one place.
+- Chat, earnings and preferences persist in browser localStorage only; no backend accounts, to keep the demo login-free.
